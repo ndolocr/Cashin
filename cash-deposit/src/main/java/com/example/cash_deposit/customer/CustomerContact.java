@@ -4,23 +4,51 @@
  */
 package com.example.cash_deposit.customer;
 
+import jakarta.persistence.*;
+
 import java.time.LocalDateTime;
 
 /**
  *
  * @author user
  */
-public class CustomerContact {   
+
+@Entity
+@Table(name = "customer_contact")
+public class CustomerContact {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(nullable = true)
     private String city;
+
+    @Column(nullable = false)
     private String email;
+
+    @Column(nullable = true)
     private String state;
+
+    @Column(nullable = true)
     private String country;
+
+    @OneToOne
+    @JoinColumn(name = "customer_id")
     private Customer customer;
+
+    @Column(nullable = true)
     private String postalCode;
+
+    @Column(nullable = true)
     private String phoneNumber;
+
+    @Column(nullable = true)
     private String addressLine1;
-    private String addressLine2;    
+
+    @Column(nullable = true)
+    private String addressLine2;
+
+    @Column(nullable = true)
     private String alternatePhone;
     
     private LocalDateTime createdAt;

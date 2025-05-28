@@ -4,6 +4,8 @@
  */
 package com.example.cash_deposit.customer;
 
+import jakarta.persistence.*;
+
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
@@ -11,12 +13,28 @@ import java.time.LocalDateTime;
  *
  * @author user
  */
+
+@Entity
+@Table(name = "customer_compliance_info")
 public class CustomerComplianceInfo {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @OneToOne
+    @JoinColumn(name = "customer_id")
     private Customer customer;
+
+    @Column(nullable = true)
     private String riskRating; // e.g., LOW, MEDIUM, HIGH
+
+    @Column(nullable = true)
     private LocalDate kycReviewDate;
+
+    @Column(nullable = true)
     private boolean sanctionsCheckPassed;
+
+    @Column(nullable = true)
     private boolean politicallyExposedPerson;
     
     private LocalDateTime createdAt;

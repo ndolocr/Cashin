@@ -4,25 +4,38 @@
  */
 package com.example.cash_deposit.customer;
 
+import jakarta.persistence.*;
+
 import java.time.LocalDateTime;
 
 /**
  *
  * @author user
  */
+@Entity
+@Table(name = "customer_auth")
 public class CustomerAuth {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String username;
+
+    @OneToOne
+    @JoinColumn(name = "customer_id")
     private Customer customer;
+
+    @Column(nullable = false)
     private String passwordHash;
+
+    @Column(nullable = true)
     private LocalDateTime lastLogin;
+
+    @Column(nullable = true)
     private boolean twoFactorEnabled;    
     
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
-    public CustomerAuth(String username, Customer customer, String passwordHash, LocalDateTime lastLogin, boolean twoFactorEnabled) {
-        this.username = username;
+    public CustomerAuth(Customer customer, String passwordHash, LocalDateTime lastLogin, boolean twoFactorEnabled) {
         this.customer = customer;
         this.passwordHash = passwordHash;
         this.lastLogin = lastLogin;
@@ -31,9 +44,6 @@ public class CustomerAuth {
 
     public Long getId() {return id;}
     public void setId(Long id) {this.id = id;}
-
-    public String getUsername() {return username;}
-    public void setUsername(String username) {this.username = username;}
 
     public Customer getCustomer() {return customer;}
     public void setCustomer(Customer customer) {this.customer = customer;}
