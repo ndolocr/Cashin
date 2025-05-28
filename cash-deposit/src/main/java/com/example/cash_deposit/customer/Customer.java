@@ -30,4 +30,41 @@ public class Customer {
     
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
+
+    public Customer(String gender, String lastName, String kycStatus, String firstName, String middleName, String nationality, LocalDate dateOfBirth, String nationalIdNumber) {
+        this.gender = gender;
+        this.lastName = lastName;
+        this.kycStatus = kycStatus;
+        this.firstName = firstName;
+        this.middleName = middleName;
+        this.nationality = nationality;
+        this.dateOfBirth = dateOfBirth;
+        this.nationalIdNumber = nationalIdNumber;
+    }
+
+    public String getGender() {return gender;}
+    public void setGender(String gender) {this.gender = gender;}
+
+    public String getLastName() {return lastName;}
+    public void setLastName(String lastName) {this.lastName = lastName;}
+
+    public String getKycStatus() {return kycStatus;}
+    public void setKycStatus(String kycStatus) {this.kycStatus = kycStatus;}
+
+    public String getFirstName() {return firstName;}
+    public void setFirstName(String firstName) {this.firstName = firstName;}
+
+    public String getMiddleName() {return middleName;}
+    public void setMiddleName(String middleName) {this.middleName = middleName;}
+
+    public String getNationality() {return nationality;}
+    public void setNationality(String nationality) {this.nationality = nationality;}
+
+    public LocalDate getDateOfBirth() {return dateOfBirth;}
+    public void setDateOfBirth(LocalDate dateOfBirth) {this.dateOfBirth = dateOfBirth;}
+
+    public String getNationalIdNumber() {return nationalIdNumber;}
+    public void setNationalIdNumber(String nationalIdNumber) {this.nationalIdNumber = nationalIdNumber;}
+    
+    
 }
