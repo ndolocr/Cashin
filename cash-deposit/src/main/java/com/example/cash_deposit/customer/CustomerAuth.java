@@ -10,18 +10,14 @@ import java.time.LocalDateTime;
  *
  * @author user
  */
-public class CustomerContact {            
-    private String city;
-    private String email;
-    private String state;
-    private String country;
+public class CustomerAuth {
+    private String username;
     private Customer customer;
-    private String postalCode;
-    private String phoneNumber;
-    private String addressLine1;
-    private String addressLine2;    
-    private String alternatePhone;
+    private String passwordHash;
+    private LocalDateTime lastLogin;
+    private boolean twoFactorEnabled;    
     
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
+
 }
