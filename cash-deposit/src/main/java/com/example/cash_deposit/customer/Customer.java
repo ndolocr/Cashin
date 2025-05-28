@@ -26,5 +26,8 @@ public class Customer {
     private LocalDate dateOfBirth;
     private String nationality;
     private String nationalIdNumber; // e.g., ID/Passport Number
-    private String kycStatus; // e.g., VERIFIED, PENDING, REJECTED 
+    private String kycStatus; // e.g., VERIFIED, PENDING, REJECTED
+    
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
 }
