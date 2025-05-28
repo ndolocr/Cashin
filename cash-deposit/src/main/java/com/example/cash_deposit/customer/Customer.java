@@ -41,7 +41,10 @@ public class Customer {
         this.dateOfBirth = dateOfBirth;
         this.nationalIdNumber = nationalIdNumber;
     }
-
+    
+    public Long getId() {return id;}
+    public void setId(Long id) {this.id = id;}
+    
     public String getGender() {return gender;}
     public void setGender(String gender) {this.gender = gender;}
 
@@ -65,6 +68,12 @@ public class Customer {
 
     public String getNationalIdNumber() {return nationalIdNumber;}
     public void setNationalIdNumber(String nationalIdNumber) {this.nationalIdNumber = nationalIdNumber;}
+
+    public LocalDateTime getCreatedAt() {return createdAt;}
+    public void setCreatedAt(LocalDateTime createdAt) {this.createdAt = createdAt;}
+
+    public LocalDateTime getUpdatedAt() {return updatedAt;}
+    public void setUpdatedAt(LocalDateTime updatedAt) {this.updatedAt = updatedAt;}
     
     
 }
