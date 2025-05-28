@@ -7,9 +7,7 @@ package com.example.cash_deposit.customer;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.RequestMapping;
-
+import jakarta.persistence.*;
 
 
 /**
@@ -17,15 +15,35 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @author user
  */
 
+@Entity
+@Table(name = "customer")
 public class Customer {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(nullable = false)
     private String gender; // Could also be an enum
+
+    @Column(nullable = false)
     private String lastName;
+
+    @Column(nullable = false)
     private String kycStatus; // e.g., VERIFIED, PENDING, REJECTED
-    private String firstName;    
-    private String middleName;    
+
+    @Column(nullable = false)
+    private String firstName;
+
+    @Column(nullable = true)
+    private String middleName;
+
+    @Column(nullable = false)
     private String nationality;
-    private LocalDate dateOfBirth;    
+
+    @Column(nullable = false)
+    private LocalDate dateOfBirth;
+
+    @Column(nullable = false)
     private String nationalIdNumber; // e.g., ID/Passport Number    
     
     private LocalDateTime createdAt;

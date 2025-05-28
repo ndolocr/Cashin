@@ -4,6 +4,8 @@
  */
 package com.example.cash_deposit.customer;
 
+import jakarta.persistence.*;
+
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
@@ -11,12 +13,27 @@ import java.time.LocalDateTime;
  *
  * @author user
  */
+@Entity
+@Table(name = "custoomer_kyc_docs")
 public class CustomerKYCDocs {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @OneToOne
+    @JoinColumn(name = "customer_id")
     private Customer customer;
+
+    @Column(nullable = true)
     private String documentUrl; // if scanned ID is uploaded
+
+    @Column(nullable = true)
     private String idDocumentType; // e.g., PASSPORT, NATIONAL_ID
-    private String idDocumentNumber;    
+
+    @Column(nullable = true)
+    private String idDocumentNumber;
+
+    @Column(nullable = true)
     private LocalDate documentExpiryDate;
     
     private LocalDateTime createdAt;
