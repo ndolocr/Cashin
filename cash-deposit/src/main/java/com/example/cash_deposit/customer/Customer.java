@@ -19,14 +19,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 public class Customer {
     private Long id;
-    private String firstName;
-    private String lastName;
-    private String middleName;
     private String gender; // Could also be an enum
-    private LocalDate dateOfBirth;
-    private String nationality;
-    private String nationalIdNumber; // e.g., ID/Passport Number
+    private String lastName;
     private String kycStatus; // e.g., VERIFIED, PENDING, REJECTED
+    private String firstName;    
+    private String middleName;    
+    private String nationality;
+    private LocalDate dateOfBirth;    
+    private String nationalIdNumber; // e.g., ID/Passport Number    
     
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
