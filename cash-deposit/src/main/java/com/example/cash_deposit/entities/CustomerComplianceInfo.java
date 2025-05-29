@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.example.cash_deposit.customer;
+package com.example.cash_deposit.entities;
 
 import jakarta.persistence.*;
 
@@ -23,7 +23,7 @@ public class CustomerComplianceInfo {
 
     @OneToOne
     @JoinColumn(name = "customer_id")
-    private Customer customer;
+    private CustomerEntity customer;
 
     @Column(nullable = true)
     private String riskRating; // e.g., LOW, MEDIUM, HIGH
@@ -40,7 +40,7 @@ public class CustomerComplianceInfo {
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
-    public CustomerComplianceInfo(Customer customer, String riskRating, LocalDate kycReviewDate, boolean sanctionsCheckPassed, boolean politicallyExposedPerson) {
+    public CustomerComplianceInfo(CustomerEntity customer, String riskRating, LocalDate kycReviewDate, boolean sanctionsCheckPassed, boolean politicallyExposedPerson) {
         this.customer = customer;
         this.riskRating = riskRating;
         this.kycReviewDate = kycReviewDate;
@@ -51,8 +51,8 @@ public class CustomerComplianceInfo {
     public Long getId() {return id;}
     public void setId(Long id) {this.id = id;}
 
-    public Customer getCustomer() {return customer;}
-    public void setCustomer(Customer customer) {this.customer = customer;}
+    public CustomerEntity getCustomer() {return customer;}
+    public void setCustomer(CustomerEntity customer) {this.customer = customer;}
 
     public String getRiskRating() {return riskRating;}
     public void setRiskRating(String riskRating) {this.riskRating = riskRating;}

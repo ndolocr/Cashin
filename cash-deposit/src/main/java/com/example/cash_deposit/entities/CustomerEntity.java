@@ -2,9 +2,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.example.cash_deposit.customer;
+package com.example.cash_deposit.entities;
 
-import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import jakarta.persistence.*;
@@ -17,7 +16,7 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name = "customer")
-public class Customer {
+public class CustomerEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -49,7 +48,7 @@ public class Customer {
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
-    public Customer(String gender, String lastName, String kycStatus, String firstName, String middleName, String nationality, LocalDate dateOfBirth, String nationalIdNumber) {
+    public CustomerEntity(String gender, String lastName, String kycStatus, String firstName, String middleName, String nationality, LocalDate dateOfBirth, String nationalIdNumber) {
         this.gender = gender;
         this.lastName = lastName;
         this.kycStatus = kycStatus;

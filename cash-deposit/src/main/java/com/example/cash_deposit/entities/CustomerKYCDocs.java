@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.example.cash_deposit.customer;
+package com.example.cash_deposit.entities;
 
 import jakarta.persistence.*;
 
@@ -22,7 +22,7 @@ public class CustomerKYCDocs {
 
     @OneToOne
     @JoinColumn(name = "customer_id")
-    private Customer customer;
+    private CustomerEntity customer;
 
     @Column(nullable = true)
     private String documentUrl; // if scanned ID is uploaded
@@ -39,7 +39,7 @@ public class CustomerKYCDocs {
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
-    public CustomerKYCDocs(Customer customer, String documentUrl, String idDocumentType, String idDocumentNumber, LocalDate documentExpiryDate) {
+    public CustomerKYCDocs(CustomerEntity customer, String documentUrl, String idDocumentType, String idDocumentNumber, LocalDate documentExpiryDate) {
         this.customer = customer;
         this.documentUrl = documentUrl;
         this.idDocumentType = idDocumentType;
@@ -50,8 +50,8 @@ public class CustomerKYCDocs {
     public Long getId() {return id;}
     public void setId(Long id) {this.id = id;}
 
-    public Customer getCustomer() {return customer;}
-    public void setCustomer(Customer customer) {this.customer = customer;}
+    public CustomerEntity getCustomer() {return customer;}
+    public void setCustomer(CustomerEntity customer) {this.customer = customer;}
 
     public String getDocumentUrl() {return documentUrl;}
     public void setDocumentUrl(String documentUrl) {this.documentUrl = documentUrl;}

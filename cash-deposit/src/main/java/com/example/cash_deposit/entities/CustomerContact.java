@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.example.cash_deposit.customer;
+package com.example.cash_deposit.entities;
 
 import jakarta.persistence.*;
 
@@ -34,7 +34,7 @@ public class CustomerContact {
 
     @OneToOne
     @JoinColumn(name = "customer_id")
-    private Customer customer;
+    private CustomerEntity customer;
 
     @Column(nullable = true)
     private String postalCode;
@@ -54,7 +54,7 @@ public class CustomerContact {
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
-    public CustomerContact(String city, String email, String state, String country, Customer customer, String postalCode, String phoneNumber, String addressLine1, String addressLine2, String alternatePhone) {
+    public CustomerContact(String city, String email, String state, String country, CustomerEntity customer, String postalCode, String phoneNumber, String addressLine1, String addressLine2, String alternatePhone) {
         this.city = city;
         this.email = email;
         this.state = state;
@@ -82,8 +82,8 @@ public class CustomerContact {
     public String getCountry() {return country;}
     public void setCountry(String country) {this.country = country;}
 
-    public Customer getCustomer() {return customer;}
-    public void setCustomer(Customer customer) {this.customer = customer;}
+    public CustomerEntity getCustomer() {return customer;}
+    public void setCustomer(CustomerEntity customer) {this.customer = customer;}
 
     public String getPostalCode() {return postalCode;}
     public void setPostalCode(String postalCode) {this.postalCode = postalCode;}
